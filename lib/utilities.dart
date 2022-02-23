@@ -96,7 +96,6 @@ class _SSSState extends State<SSS> {
                   border: InputBorder.none,
                   fillColor: Colors.grey.shade200,
                   hintText: "What's on your mind, Megg?",
-                  
                 ),
               ),
             ),
@@ -181,51 +180,7 @@ class _SSSState extends State<SSS> {
               height: 20,
               child: Text(''),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  children: [
-                    Stack(
-                      children: [
-                        Container(
-                          height: 100,
-                          width: 80,
-                          decoration: BoxDecoration(
-                            // image: DecorationImage(image: AssetImage('assets/a0.jpg'),),
-                            borderRadius: BorderRadius.circular(10),
-                            color: red,
-                          ),
-                          child: Image(
-                            image: AssetImage('assets/a0.jpg'), 
-                            // fit: BoxFit.fitHeight,
-                          ),
-                        ),
-                        Positioned(
-                          top: 70,
-                          left: 22,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              border: Border.all(width: 2, color: white,),
-                              borderRadius: BorderRadius.circular(100)
-                            ),
-                            child: CircleAvatar(
-                              radius: 15,
-                              backgroundImage: ( AssetImage('assets/a0.jpg')),
-                            ),
-                          ),
-                        ),
-                        
-                        
-                        
-                      ],
-                    ),
-                    Text('Yusuff Rasheed'),
-                    
-                  ],
-                )
-              ],
-            )
+            StackCards(),
           ],
         ),
       ),
@@ -244,5 +199,122 @@ class _LSSState extends State<LSS> {
   @override
   Widget build(BuildContext context) {
     return Container();
+  }
+}
+
+class StackCards extends StatelessWidget {
+  const StackCards({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
+            children: [
+              ClippedEdgeCard('assets/a0.jpg'),
+              Text('Maa'),
+            ],
+          ),
+          Column(
+            children: [
+              ClippedEdgeCard('assets/a6.jpg'),
+              Text('Ayoka'),
+            ],
+          ),
+          Column(
+            children: [
+              ClippedEdgeCard('assets/a0.jpg'),
+              Text('Lolade'),
+            ],
+          ),
+          Column(
+            children: [
+              ClippedEdgeCard('assets/a6.jpg'),
+              Text('Yu Su Fu'),
+            ],
+          ),
+          Column(
+            children: [
+              ClippedEdgeCard('assets/a0.jpg'),
+              Text('Bae YU'),
+            ],
+          ),
+          Column(
+            children: [
+              ClippedEdgeCard('assets/a6.jpg'),
+              Text('Ola'),
+            ],
+          ),
+          Column(
+            children: [
+              ClippedEdgeCard('assets/a0.jpg'),
+              Text('Fam'),
+            ],
+          ),
+          Column(
+            children: [
+              ClippedEdgeCard('assets/a6.jpg'),
+              Text('Bun Ga'),
+            ],
+          ),
+          Column(
+            children: [
+              ClippedEdgeCard('assets/a0.jpg'),
+              Text('Joko Tola'),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ClippedEdgeCard extends StatelessWidget {
+  ClippedEdgeCard(this.image);
+  final String image;
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      clipBehavior: Clip.antiAliasWithSaveLayer,
+      borderRadius: BorderRadius.circular(10),
+      child: Container(
+        height: 140,
+        child: Stack(
+          clipBehavior: Clip.none,
+          children: [
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 2),
+              height: 100,
+              width: 100,
+              child: Image(
+                fit: BoxFit.cover,
+                image: AssetImage(image),
+                // fit: BoxFit.fitHeight,
+              ),
+            ),
+            Positioned(
+              top: 80,
+              left: 30,
+              child: Container(
+                decoration: BoxDecoration(
+                    border: Border.all(
+                      width: 2,
+                      color: white,
+                    ),
+                    borderRadius: BorderRadius.circular(100)),
+                child: CircleAvatar(
+                  radius: 20,
+                  backgroundImage: (AssetImage(image)),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
