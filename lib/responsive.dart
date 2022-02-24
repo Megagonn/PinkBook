@@ -8,11 +8,11 @@ class Res extends StatefulWidget {
   final web;
 
   static bool isSmall(context) {
-    return MediaQuery.of(context).size.width <= 500;
+    return MediaQuery.of(context).size.width <= 600;
   }
 
   static bool isLarge(context) {
-    return MediaQuery.of(context).size.width > 500;
+    return MediaQuery.of(context).size.width > 600;
   }
 
   @override
@@ -24,7 +24,7 @@ class _ResState extends State<Res> {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        if (constraints.maxWidth <= 500) {
+        if (constraints.maxWidth <= 600) {
           return widget.mobile;
         } else {
           return widget.web;

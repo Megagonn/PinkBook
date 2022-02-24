@@ -22,6 +22,7 @@ class Story extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(height: 4, child: Text('')),
         Row(
