@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pinkbook/ssmstore.dart';
 
 import 'colors.dart';
 
@@ -10,11 +11,14 @@ class MB extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(20),
-      child: Column(
-        children: [
-          TopCard(),
-          MiddleBar(),
-        ],
+      child: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          children: [
+            TopCard(),
+            MiddleBar(),
+          ],
+        ),
       ),
     );
   }
@@ -147,132 +151,157 @@ class MiddleBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10),
-      child: Column(
-        children: [
-          Container(
-            margin: EdgeInsets.symmetric(vertical: 10),
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Stories",
-                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
-                  ),
-                  Text(
-                    "see all",
-                    style: TextStyle(color: blue, fontSize: 14),
-                  )
-                ]),
-          ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                StoryCards()
-              ]
+      child: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          children: [
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 10),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Stories",
+                      style:
+                          TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
+                    ),
+                    Text(
+                      "see all",
+                      style: TextStyle(color: blue, fontSize: 14),
+                    )
+                  ]),
             ),
-          ),
-          
-        ],
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(children: [StoryCards()]),
+            ),
+            Stories(),
+          ],
+        ),
       ),
     );
   }
 }
 
+class Stories extends StatelessWidget {
+  const Stories({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Post(),
+        SizedBox(
+          height: 4,
+        ),
+        Post(),
+        SizedBox(
+          height: 4,
+        ),
+        Post(),
+        SizedBox(
+          height: 4,
+        ),
+        Post(),
+        SizedBox(
+          height: 4,
+        ),
+        Post(),
+        SizedBox(
+          height: 4,
+        ),
+      ],
+    );
+  }
+}
+
+class Post extends StatelessWidget {
+  const Post({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(5),
+      child: Story(
+        name: "Yinka Shuaib",
+        time: "8min",
+        dp: "assets/a11.jpg",
+        storyPicz: "assets/a10.jpg",
+        caption: "New breath! What a lovely moment",
+        comment: "5.7k comments",
+        shares: "10K",
+      ),
+    );
+  }
+}
+
+//story cards------
 class StoryCards extends StatelessWidget {
   const StoryCards({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
+        child: SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
         children: [
-                  Stack(
-                    children: [
-                      MyCard(
-                        image: '',
-                        name: "Ade Ade"
-                      ),
-                      Positioned(
-                          top: 40,
-                          left: 20,
-                          child: Container(
-                            padding: EdgeInsets.all(5),
-                            decoration: BoxDecoration(
-                              border: Border.all(width: 2, color: lightBlue),
-                              borderRadius: BorderRadius.circular(50)
-                            ),
-                            child: Icon(
-                              Icons.add,
-                              color: blue,
-                            ),
-                          ))
-                    ],
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  MyCard(
-                    image: "assets/a0.jpg",
-                    name: "Ade Omoade"
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  MyCard(
-                    image: "assets/a1.jpg",
-                    name: "Jane Mike"
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  MyCard(
-                    image: "assets/a2.jpg",
-                    name: "Tade Muhammad"
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  MyCard(
-                    image: "assets/a4.jpg",
-                    name: "Jime Iyke"
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  MyCard(
-                    image: "assets/a5.jpg",
-                    name: "Ola AminuLloh"
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  MyCard(
-                    image: "assets/a6.jpg",
-                    name: "Dolly P"
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  MyCard(
-                    image: "assets/a9.jpg",
-                    name: "Little Boss"
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  MyCard(
-                    image: "assets/a7.jpg",
-                    name: "Yusuff Yusuff"
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                ],
+          Stack(
+            children: [
+              MyCard(image: '', name: "Ade Ade"),
+              Positioned(
+                  top: 40,
+                  left: 20,
+                  child: Container(
+                    padding: EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                        border: Border.all(width: 2, color: lightBlue),
+                        borderRadius: BorderRadius.circular(50)),
+                    child: Icon(
+                      Icons.add,
+                      color: blue,
+                    ),
+                  ))
+            ],
           ),
-      ));
+          SizedBox(
+            width: 10,
+          ),
+          MyCard(image: "assets/a0.jpg", name: "Ade Omoade"),
+          SizedBox(
+            width: 10,
+          ),
+          MyCard(image: "assets/a1.jpg", name: "Jane Mike"),
+          SizedBox(
+            width: 10,
+          ),
+          MyCard(image: "assets/a2.jpg", name: "Tade Muhammad"),
+          SizedBox(
+            width: 10,
+          ),
+          MyCard(image: "assets/a4.jpg", name: "Jime Iyke"),
+          SizedBox(
+            width: 10,
+          ),
+          MyCard(image: "assets/a5.jpg", name: "Ola AminuLloh"),
+          SizedBox(
+            width: 10,
+          ),
+          MyCard(image: "assets/a6.jpg", name: "Dolly P"),
+          SizedBox(
+            width: 10,
+          ),
+          MyCard(image: "assets/a9.jpg", name: "Little Boss"),
+          SizedBox(
+            width: 10,
+          ),
+          MyCard(image: "assets/a7.jpg", name: "Yusuff Yusuff"),
+          SizedBox(
+            width: 10,
+          ),
+        ],
+      ),
+    ));
   }
 }
 
@@ -290,13 +319,16 @@ class MyCard extends StatelessWidget {
           height: 120,
           width: 80,
           decoration: BoxDecoration(
-              image: DecorationImage(image: AssetImage(image!), fit: BoxFit.fill),
+              image:
+                  DecorationImage(image: AssetImage(image!), fit: BoxFit.fill),
               border: Border.all(width: 2, color: blue),
               borderRadius: BorderRadius.circular(5),
               color: white),
           child: child,
         ),
-        SizedBox(height: 5,),
+        SizedBox(
+          height: 5,
+        ),
         Text(name!)
       ],
     );
