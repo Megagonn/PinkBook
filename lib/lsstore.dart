@@ -13,6 +13,7 @@ class MB extends StatelessWidget {
       child: Column(
         children: [
           TopCard(),
+          MiddleBar(),
         ],
       ),
     );
@@ -26,7 +27,6 @@ class TopCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
-      
       child: Container(
         color: white,
         padding: EdgeInsets.all(10),
@@ -40,13 +40,15 @@ class TopCard extends StatelessWidget {
                 Text(
                   "What's on your mind? Megagon",
                   style: TextStyle(fontWeight: FontWeight.w600),
-                ),SizedBox(
+                ),
+                SizedBox(
                   height: 4,
                 ),
                 Text(
                   "Sharing options",
                   style: TextStyle(fontSize: 12, color: grey),
-                ),SizedBox(
+                ),
+                SizedBox(
                   height: 4,
                 ),
                 Row(
@@ -56,9 +58,8 @@ class TopCard extends StatelessWidget {
                     Container(
                       padding: EdgeInsets.all(5),
                       decoration: BoxDecoration(
-                        border: Border.all(width: 2, color: blue),
-                        borderRadius: BorderRadius.circular(50)
-                      ),
+                          border: Border.all(width: 2, color: blue),
+                          borderRadius: BorderRadius.circular(50)),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -66,7 +67,9 @@ class TopCard extends StatelessWidget {
                             Icons.camera_alt_outlined,
                             color: blue,
                           ),
-                          SizedBox(width: 10,),
+                          SizedBox(
+                            width: 10,
+                          ),
                           Text(
                             "Camera",
                             style: TextStyle(color: blue),
@@ -74,20 +77,24 @@ class TopCard extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(width: 7,),
+                    SizedBox(
+                      width: 7,
+                    ),
                     Container(
                       padding: EdgeInsets.all(5),
                       decoration: BoxDecoration(
-                        border: Border.all(width: 2, color: blue),
-                        borderRadius: BorderRadius.circular(50)
-                      ),
+                          border: Border.all(width: 2, color: blue),
+                          borderRadius: BorderRadius.circular(50)),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Icon(
                             Icons.video_camera_back_outlined,
                             color: blue,
-                          ),SizedBox(width: 10,),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
                           Text(
                             "Live",
                             style: TextStyle(color: blue),
@@ -105,15 +112,193 @@ class TopCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Icon(Icons.emoji_emotions_outlined, color: blue,),SizedBox(width: 7,),
-                  Icon(Icons.collections_bookmark_outlined, color: blue,),SizedBox(width: 7,),
-                  Icon(Icons.add, color: blue,),
+                  Icon(
+                    Icons.emoji_emotions_outlined,
+                    color: blue,
+                  ),
+                  SizedBox(
+                    width: 7,
+                  ),
+                  Icon(
+                    Icons.collections_bookmark_outlined,
+                    color: blue,
+                  ),
+                  SizedBox(
+                    width: 7,
+                  ),
+                  Icon(
+                    Icons.add,
+                    color: blue,
+                  ),
                 ],
               ),
             )
           ],
         ),
       ),
+    );
+  }
+}
+
+class MiddleBar extends StatelessWidget {
+  const MiddleBar({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 10),
+      child: Column(
+        children: [
+          Container(
+            margin: EdgeInsets.symmetric(vertical: 10),
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Stories",
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
+                  ),
+                  Text(
+                    "see all",
+                    style: TextStyle(color: blue, fontSize: 14),
+                  )
+                ]),
+          ),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                StoryCards()
+              ]
+            ),
+          ),
+          
+        ],
+      ),
+    );
+  }
+}
+
+class StoryCards extends StatelessWidget {
+  const StoryCards({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+        children: [
+                  Stack(
+                    children: [
+                      MyCard(
+                        image: '',
+                        name: "Ade Ade"
+                      ),
+                      Positioned(
+                          top: 40,
+                          left: 20,
+                          child: Container(
+                            padding: EdgeInsets.all(5),
+                            decoration: BoxDecoration(
+                              border: Border.all(width: 2, color: lightBlue),
+                              borderRadius: BorderRadius.circular(50)
+                            ),
+                            child: Icon(
+                              Icons.add,
+                              color: blue,
+                            ),
+                          ))
+                    ],
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  MyCard(
+                    image: "assets/a0.jpg",
+                    name: "Ade Omoade"
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  MyCard(
+                    image: "assets/a1.jpg",
+                    name: "Jane Mike"
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  MyCard(
+                    image: "assets/a2.jpg",
+                    name: "Tade Muhammad"
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  MyCard(
+                    image: "assets/a4.jpg",
+                    name: "Jime Iyke"
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  MyCard(
+                    image: "assets/a5.jpg",
+                    name: "Ola AminuLloh"
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  MyCard(
+                    image: "assets/a6.jpg",
+                    name: "Dolly P"
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  MyCard(
+                    image: "assets/a9.jpg",
+                    name: "Little Boss"
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  MyCard(
+                    image: "assets/a7.jpg",
+                    name: "Yusuff Yusuff"
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                ],
+          ),
+      ));
+  }
+}
+
+class MyCard extends StatelessWidget {
+  const MyCard({Key? key, this.child, this.image, this.name}) : super(key: key);
+  final Widget? child;
+  final String? image;
+  final String? name;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          height: 120,
+          width: 80,
+          decoration: BoxDecoration(
+              image: DecorationImage(image: AssetImage(image!), fit: BoxFit.fill),
+              border: Border.all(width: 2, color: blue),
+              borderRadius: BorderRadius.circular(5),
+              color: white),
+          child: child,
+        ),
+        SizedBox(height: 5,),
+        Text(name!)
+      ],
     );
   }
 }
@@ -457,21 +642,20 @@ class LB extends StatelessWidget {
             margin: EdgeInsets.symmetric(vertical: 20),
             width: 300,
             padding: EdgeInsets.all(2),
-                      decoration: BoxDecoration(
-                        border: Border.all(width: 2, color: blue),
-                        borderRadius: BorderRadius.circular(50)
-                      ),
+            decoration: BoxDecoration(
+                border: Border.all(width: 2, color: blue),
+                borderRadius: BorderRadius.circular(50)),
             child: TextField(
               decoration: InputDecoration(
-                hintText: "Search",
-                suffixIcon: Icon(Icons.search_outlined),
-                border: InputBorder.none
-                // OutlineInputBorder(
+                  hintText: "Search",
+                  suffixIcon: Icon(Icons.search_outlined),
+                  border: InputBorder.none
+                  // OutlineInputBorder(
                   // borderSide: BorderSide(width: 1.5, color: blue),
                   // borderRadius: BorderRadius.circular(50),
-                  
-                // ),
-              ),
+
+                  // ),
+                  ),
             ),
           ),
           LNavTabs(),
