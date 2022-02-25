@@ -40,40 +40,60 @@ class TopCard extends StatelessWidget {
                 Text(
                   "What's on your mind? Megagon",
                   style: TextStyle(fontWeight: FontWeight.w600),
+                ),SizedBox(
+                  height: 4,
                 ),
                 Text(
                   "Sharing options",
                   style: TextStyle(fontSize: 12, color: grey),
+                ),SizedBox(
+                  height: 4,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.camera_alt_outlined,
-                          color: blue,
-                        ),
-                        Text(
-                          "Camera",
-                          style: TextStyle(color: blue),
-                        ),
-                      ],
+                    Container(
+                      padding: EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                        border: Border.all(width: 2, color: blue),
+                        borderRadius: BorderRadius.circular(50)
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.camera_alt_outlined,
+                            color: blue,
+                          ),
+                          SizedBox(width: 10,),
+                          Text(
+                            "Camera",
+                            style: TextStyle(color: blue),
+                          ),
+                        ],
+                      ),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.video_camera_back_outlined,
-                          color: blue,
-                        ),
-                        Text(
-                          "Live",
-                          style: TextStyle(color: blue),
-                        ),
-                      ],
+                    SizedBox(width: 7,),
+                    Container(
+                      padding: EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                        border: Border.all(width: 2, color: blue),
+                        borderRadius: BorderRadius.circular(50)
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.video_camera_back_outlined,
+                            color: blue,
+                          ),SizedBox(width: 10,),
+                          Text(
+                            "Live",
+                            style: TextStyle(color: blue),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -85,8 +105,8 @@ class TopCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Icon(Icons.emoji_emotions_outlined, color: blue,),
-                  Icon(Icons.collections_bookmark_outlined, color: blue,),
+                  Icon(Icons.emoji_emotions_outlined, color: blue,),SizedBox(width: 7,),
+                  Icon(Icons.collections_bookmark_outlined, color: blue,),SizedBox(width: 7,),
                   Icon(Icons.add, color: blue,),
                 ],
               ),
@@ -418,30 +438,39 @@ class LB extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Icon(
                 Icons.facebook_rounded,
                 color: blue,
               ),
-              Text(
-                "facebook",
-                style: TextStyle(fontWeight: FontWeight.w800, color: blue),
+              Container(
+                margin: EdgeInsets.only(left: 5),
+                child: Text(
+                  "facebook",
+                  style: TextStyle(fontWeight: FontWeight.w800, color: blue),
+                ),
               ),
             ],
           ),
           Container(
             margin: EdgeInsets.symmetric(vertical: 20),
-            width: 200,
+            width: 300,
+            padding: EdgeInsets.all(2),
+                      decoration: BoxDecoration(
+                        border: Border.all(width: 2, color: blue),
+                        borderRadius: BorderRadius.circular(50)
+                      ),
             child: TextField(
               decoration: InputDecoration(
-                contentPadding: EdgeInsets.all(10),
                 hintText: "Search",
                 suffixIcon: Icon(Icons.search_outlined),
-                border: OutlineInputBorder(
-                  borderSide: BorderSide(width: 1.5, color: blue),
-                  borderRadius: BorderRadius.circular(50),
-                ),
+                border: InputBorder.none
+                // OutlineInputBorder(
+                  // borderSide: BorderSide(width: 1.5, color: blue),
+                  // borderRadius: BorderRadius.circular(50),
+                  
+                // ),
               ),
             ),
           ),
