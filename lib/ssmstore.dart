@@ -110,20 +110,17 @@ class MyChip extends StatelessWidget {
         avatar: CircleAvatar(
           // radius: 50,
           backgroundColor: dbg,
-          child: Padding(
-            padding: EdgeInsets.all(padding),
-            child: Icon(
-              icon,
-              color: white,
-              size: 18,
-            ),
+          child: Icon(
+            icon,
+            color: white,
+            size: 18,
           ),
         ),
         label: Text(
           text,
           style: TextStyle(color: dbg),
         ),
-        labelPadding: EdgeInsets.all(10),
+        labelPadding: EdgeInsets.all(4),
       ),
     );
   }

@@ -41,6 +41,7 @@ class _SSSState extends State<SSS> {
         ),
         actions: [
           CircleAvatar(
+            radius: 15,
             backgroundColor: grey,
             child: Icon(
               Icons.search_sharp,
@@ -52,6 +53,7 @@ class _SSSState extends State<SSS> {
             child: Text(''),
           ),
           CircleAvatar(
+            radius: 15,
             backgroundColor: red,
             child: Icon(
               Icons.notifications,
@@ -63,6 +65,7 @@ class _SSSState extends State<SSS> {
             child: Text(''),
           ),
           CircleAvatar(
+            radius: 15,
             backgroundColor: grey,
             child: Icon(
               Icons.supervised_user_circle_sharp,
@@ -74,6 +77,7 @@ class _SSSState extends State<SSS> {
             child: Text(''),
           ),
           CircleAvatar(
+            radius: 15,
             backgroundColor: blue,
             child: Icon(
               Icons.messenger_sharp,
@@ -97,10 +101,10 @@ class _SSSState extends State<SSS> {
                   backgroundImage: AssetImage('assets/a3.jpg'),
                 ),
                 label: TextField(
-                  cursorColor: grey,
+                  // cursorColor: grey,
                   decoration: InputDecoration(
                     border: InputBorder.none,
-                    fillColor: Colors.grey.shade200,
+                    fillColor: Colors.grey.shade50,
                     hintText: "What's on your mind, Megg?",
                   ),
                 ),
@@ -112,10 +116,10 @@ class _SSSState extends State<SSS> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  MyChip(Icons.image_rounded, 'Gallery', 10, green, lightGreen),
-                  MyChip(Icons.supervised_user_circle_sharp, 'Tag Friends', 10,
+                  MyChip(Icons.image_rounded, 'Gallery', 7, green, lightGreen),
+                  MyChip(Icons.supervised_user_circle_sharp, 'Tag Friends', 7,
                       red, lightRed),
-                  MyChip(Icons.video_camera_back_sharp, 'Live', 0, blue,
+                  MyChip(Icons.video_camera_back_sharp, 'Live', 7, blue,
                       lightBlue),
                 ],
               ),
@@ -128,6 +132,10 @@ class _SSSState extends State<SSS> {
                 
                 children: [
                   StackCards(),
+                  SizedBox(
+                    height: 3,
+                    child: Container(color: lightGrey,)
+                  ),
                   Container(
                     // height: 200,
                     child: Story(
@@ -160,7 +168,7 @@ class _SSSState extends State<SSS> {
                       dp: 'assets/a13.jpg',
                       caption: "Lorem ipsum dolor silu jfbn da abdjonbad",
                       comment: "2.3k comments",
-                      shares: "20.1k shares",
+                      shares: "1k shares",
                     ),
                   ),
                 ],
